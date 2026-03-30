@@ -1,34 +1,44 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import * as SharedStyle from '../../shared-style';
+import styled from 'styled-components';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 
-const STYLE = {
-  borderTop: '1px solid #222',
-  borderBottom: '1px solid #48494E',
-  userSelect: 'none'
-};
-const STYLE_TITLE = {
-  fontSize: '11px',
-  color: SharedStyle.PRIMARY_COLOR.text_alt,
-  padding: '5px 15px 8px 15px',
-  backgroundColor: SharedStyle.PRIMARY_COLOR.alt,
-  textShadow: '-1px -1px 2px rgba(0, 0, 0, 1)',
-  boxShadow: 'inset 0px -3px 19px 0px rgba(0,0,0,0.5)',
-  margin: '0px',
-  cursor: 'pointer'
-};
-const STYLE_CONTENT = {
-  fontSize: '11px',
-  color: SharedStyle.PRIMARY_COLOR.text_alt,
-  border: '1px solid #222',
-  padding: '0px',
-  backgroundColor: SharedStyle.PRIMARY_COLOR.alt,
-  textShadow: '-1px -1px 2px rgba(0, 0, 0, 1)'
-};
-const STYLE_ARROW = {
-  float: 'right'
-};
+const PanelWrapper = styled.div`
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  user-select: none;
+`;
+
+const PanelHeader = styled.h3`
+  font-size: 11px;
+  color: ${props => props.isHovered ? '#6366f1' : 'rgba(255, 255, 255, 0.6)'};
+  padding: 8px 15px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+`;
+
+const PanelContent = styled.div`
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0;
+  background: rgba(0, 0, 0, 0.15);
+  display: ${props => props.isOpen ? 'block' : 'none'};
+`;
+
+const HeaderLeft = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+`;
 
 export default class Panel extends Component {
 
@@ -55,26 +65,28 @@ export default class Panel extends Component {
     let { opened, hover } = this.state;
 
     return (
-      <div style={STYLE}>
-        <h3
-          style={{...STYLE_TITLE, color: hover ? SharedStyle.SECONDARY_COLOR.main : SharedStyle.PRIMARY_COLOR.text_alt}}
+      <PanelWrapper>
+        <PanelHeader
+          isHovered={hover}
           onMouseEnter={() => this.toggleHover()}
           onMouseLeave={() => this.toggleHover()}
           onClick={() => this.toggleOpen()}
         >
-          {name}
-          {headComponents}
+          <HeaderLeft>
+            {name}
+            {headComponents}
+          </HeaderLeft>
           {
             opened ?
-              <FaAngleUp style={STYLE_ARROW} /> :
-              <FaAngleDown style={STYLE_ARROW} />
+              <FaAngleUp /> :
+              <FaAngleDown />
           }
-        </h3>
+        </PanelHeader>
 
-        <div style={{...STYLE_CONTENT, display: opened ? 'block' : 'none'}}>
+        <PanelContent isOpen={opened}>
           {children}
-        </div>
-      </div>
+        </PanelContent>
+      </PanelWrapper>
     )
   }
 }

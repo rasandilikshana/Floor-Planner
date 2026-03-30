@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import PanelElementEditor from './panel-element-editor/panel-element-editor';
 import PanelGroupEditor from './panel-group-editor';
 import PanelMultiElementsEditor from './panel-element-editor/panel-multi-elements-editor';
@@ -7,16 +8,23 @@ import PanelLayers from './panel-layers';
 import PanelGuides from './panel-guides';
 import PanelGroups from './panel-groups';
 import PanelLayerElements from './panel-layer-elements';
-import * as SharedStyle from '../../shared-style';
 import If from '../../utils/react-if';
 
-const STYLE = {
-  backgroundColor: SharedStyle.PRIMARY_COLOR.main,
-  display: 'block',
-  overflowY: 'auto',
-  overflowX: 'hidden',
-  paddingBottom: '20px'
-};
+const SidebarAside = styled.aside`
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 2px; }
+  &::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+`;
 
 const sortButtonsCb = (a, b) => {
   if (a.index === undefined || a.index === null) {
@@ -72,14 +80,14 @@ export default function Sidebar({ state, width, height, sidebarComponents }) {
   }));
 
   return (
-    <aside
-      style={{ width, height, ...STYLE }}
+    <SidebarAside
+      style={{ width, height }}
       onKeyDown={event => event.stopPropagation()}
       onKeyUp={event => event.stopPropagation()}
       className="sidebar"
     >
       {sorter.sort(sortButtonsCb).map(mapButtonsCb)}
-    </aside>
+    </SidebarAside>
   );
 }
 
