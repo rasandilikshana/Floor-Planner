@@ -7,56 +7,61 @@ const STYLE_BOX = {
   width: '14em',
   height: '14em',
   padding: '0.625em',
-  background: '#f7f7f9',
-  border: '1px solid #e1e1e8',
+  background: 'rgba(255, 255, 255, 0.04)',
+  border: '1px solid rgba(255, 255, 255, 0.08)',
   cursor: 'pointer',
   position: 'relative',
-  boxShadow: '0 1px 6px 0 rgba(0, 0, 0, 0.11), 0 1px 4px 0 rgba(0, 0, 0, 0.11)',
-  borderRadius: '2px',
-  transition: 'all .15s ease-in-out',
-  WebkitTransition: 'all .15s ease-in-out',
+  boxShadow: 'none',
+  borderRadius: '10px',
+  transition: 'all .2s ease-in-out',
   alignSelf: 'center',
   justifySelf: 'center',
 };
 
 const STYLE_BOX_HOVER = {
   ...STYLE_BOX,
-  background: SharedStyle.SECONDARY_COLOR.main
+  background: 'rgba(99, 102, 241, 0.1)',
+  borderColor: 'rgba(99, 102, 241, 0.3)',
+  boxShadow: '0 0 20px rgba(99, 102, 241, 0.15)',
+  transform: 'translateY(-2px)'
 };
 
 const STYLE_TITLE = {
-  width:'100%',
-  textAlign:'center',
-  display:'block',
-  marginBottom:'.5em',
-  textTransform: 'capitalize'
+  width: '100%',
+  textAlign: 'center',
+  display: 'block',
+  marginBottom: '.5em',
+  textTransform: 'capitalize',
+  color: 'rgba(255, 255, 255, 0.95)'
 };
 
 const STYLE_TITLE_HOVER = {
   ...STYLE_TITLE,
-  color:SharedStyle.COLORS.white
+  color: '#FFF'
 };
 
 const STYLE_IMAGE_CONTAINER = {
   width: '100%',
   height: '8em',
-  position:'relative',
-  overflow:'hidden',
-  border: 'solid 1px #e6e6e6',
-  padding:0,
-  margin:0,
-  marginBottom: '5px'
+  position: 'relative',
+  overflow: 'hidden',
+  border: 'solid 1px rgba(255, 255, 255, 0.06)',
+  padding: 0,
+  margin: 0,
+  marginBottom: '5px',
+  borderRadius: '6px',
+  background: 'rgba(0, 0, 0, 0.3)'
 };
 
 const STYLE_IMAGE = {
-  position:'absolute',
+  position: 'absolute',
   background: '#222',
   width: '100%',
   height: '100%',
   backgroundSize: 'contain',
-  backgroundPosition:'50% 50%',
-  backgroundColor:SharedStyle.COLORS.white,
-  backgroundRepeat:'no-repeat',
+  backgroundPosition: '50% 50%',
+  backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  backgroundRepeat: 'no-repeat',
   transition: 'all .2s ease-in-out'
 };
 
@@ -66,25 +71,25 @@ const STYLE_IMAGE_HOVER = {
 };
 
 const STYLE_PLUS_HOVER = {
-  marginTop:'1.5em',
-  color: SharedStyle.SECONDARY_COLOR.main,
+  marginTop: '1.5em',
+  color: '#6366f1',
   fontSize: '2em',
   opacity: '0.7',
   width: '100%'
 };
 
 const STYLE_DESCRIPTION = {
-  display: 'block',
   display: '-webkit-box',
   height: '2em',
   margin: '0 auto',
   fontSize: '0.75em',
-  fontStyle:'italic',
+  fontStyle: 'italic',
   lineHeight: '1em',
   WebkitLineClamp: '2',
   WebkitBoxOrient: 'vertical',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
+  color: 'rgba(255, 255, 255, 0.35)'
 };
 
 const STYLE_TAGS = {
@@ -97,8 +102,8 @@ const STYLE_TAGS = {
 
 const STYLE_TAG = {
   display: 'inline-block',
-  background: '#337ab7',
-  color: SharedStyle.COLORS.white,
+  background: 'rgba(99, 102, 241, 0.2)',
+  color: '#a5b4fc',
   padding: '1px 4px',
   marginRight: '3px',
   borderRadius: '3px'

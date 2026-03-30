@@ -11,10 +11,11 @@ const PRECISION = 2;
 
 const attrPorpSeparatorStyle = {
   margin: '0.5em 0.25em 0.5em 0',
-  border: '2px solid ' + SharedStyle.SECONDARY_COLOR.alt,
+  border: '1px solid rgba(255, 255, 255, 0.08)',
   position:'relative',
   height:'2.5em',
-  borderRadius:'2px'
+  borderRadius:'2px',
+  background: 'rgba(255, 255, 255, 0.04)'
 };
 
 const headActionStyle = {
@@ -28,7 +29,8 @@ const iconHeadStyle = {
   margin:'-3px 4px 0px 0px',
   padding:0,
   cursor:'pointer',
-  fontSize:'1.4em'
+  fontSize:'1.4em',
+  color: 'rgba(255, 255, 255, 0.6)'
 };
 
 export default class ElementEditor extends Component {

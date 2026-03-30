@@ -10,14 +10,16 @@ import * as SharedStyle from '../../shared-style';
 
 const containerStyle = {
   position: 'fixed',
-  width:'calc( 100% - 51px)',
-  height:'calc( 100% - 20px)',
-  backgroundColor:'#FFF',
-  padding:'1em',
-  left:50,
-  overflowY:'auto',
-  overflowX:'hidden',
-  zIndex:10
+  width: 'calc(100% - 57px)',
+  height: 'calc(100% - 28px)',
+  backgroundColor: 'rgba(15, 15, 20, 0.95)',
+  backdropFilter: 'blur(20px)',
+  WebkitBackdropFilter: 'blur(20px)',
+  padding: '1em',
+  left: 56,
+  overflowY: 'auto',
+  overflowX: 'hidden',
+  zIndex: 10
 };
 
 const itemsStyle = {
@@ -31,28 +33,32 @@ const searchContainer = {
   width: '100%',
   height: '3em',
   padding: '0.625em',
-  background: '#f7f7f9',
-  border: '1px solid #e1e1e8',
+  background: 'rgba(255, 255, 255, 0.04)',
+  border: '1px solid rgba(255, 255, 255, 0.08)',
   cursor: 'pointer',
   position: 'relative',
-  boxShadow: '0 1px 6px 0 rgba(0, 0, 0, 0.11), 0 1px 4px 0 rgba(0, 0, 0, 0.11)',
-  borderRadius: '2px',
+  boxShadow: 'none',
+  borderRadius: '10px',
   transition: 'all .2s ease-in-out',
-  WebkitTransition: 'all .2s ease-in-out',
   marginBottom: '1em'
 };
 
 const searchText = {
   width: '8em',
-  display: 'inline-block'
+  display: 'inline-block',
+  color: 'rgba(255, 255, 255, 0.6)'
 };
 
 const searchInput = {
-  width: 'calc( 100% - 10em )',
+  width: 'calc(100% - 10em)',
   height: '2em',
   margin: '0',
   padding: '0 1em',
-  border: '1px solid #EEE'
+  border: '1px solid rgba(255, 255, 255, 0.08)',
+  background: 'rgba(0, 0, 0, 0.3)',
+  color: 'rgba(255, 255, 255, 0.95)',
+  borderRadius: '6px',
+  outline: 'none'
 };
 
 const historyContainer = {
@@ -64,12 +70,12 @@ const historyElementStyle = {
   width: 'auto',
   height: '2em',
   lineHeight: '2em',
-  textAlign:'center',
+  textAlign: 'center',
   borderRadius: '1em',
   display: 'inline-block',
   cursor: 'pointer',
-  backgroundColor: SharedStyle.PRIMARY_COLOR.alt,
-  color: SharedStyle.PRIMARY_COLOR.text_main,
+  backgroundColor: 'rgba(99, 102, 241, 0.15)',
+  color: '#a5b4fc',
   textTransform: 'capitalize',
   margin: '0.25em',
   padding: '0 1em'

@@ -10,17 +10,18 @@ const breadcrumbStyle = {
 
 const breadcrumbTextStyle = {
   fontSize: '20px',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  color: 'rgba(255, 255, 255, 0.6)'
 };
 
 const breadcrumbLastTextStyle = {
   ...breadcrumbTextStyle,
-  fontWeight:'bolder',
-  color:SharedStyle.SECONDARY_COLOR.main
+  fontWeight: 'bolder',
+  color: '#6366f1'
 };
 
 const breadcrumbTabStyle = {
-  fill: SharedStyle.COLORS.black,
+  fill: 'rgba(255, 255, 255, 0.3)',
   fontSize: '24px',
   marginLeft: '10px',
   marginRight: '10px'

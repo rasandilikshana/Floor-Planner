@@ -10,9 +10,10 @@ import {
 } from '../../../constants';
 import { FormSelect } from '../../../components/style/export';
 import { Group } from '../../../class/export';
+import * as SharedStyle from '../../../shared-style';
 
-const tableStyle = { width: '100%' };
-const firstTdStyle = { width: '6em' };
+const tableStyle = { width: '100%', color: 'rgba(255, 255, 255, 0.95)' };
+const firstTdStyle = { width: '6em', color: 'rgba(255, 255, 255, 0.6)' };
 
 export default class PanelMultiElementsEditor extends Component {
 //export default function PanelMultiElementsEditor({state}, {projectActions, translator}) {
@@ -54,7 +55,7 @@ export default class PanelMultiElementsEditor extends Component {
     return (
       <Panel name={'Multiselected'} opened={true}>
         <div style={{padding: '5px 15px'}}>
-          <p>Multiselection tab</p>
+          <p style={{color: 'rgba(255, 255, 255, 0.6)'}}>Multiselection tab</p>
           <table style={tableStyle}>
             <tbody>
               <tr>
@@ -67,7 +68,7 @@ export default class PanelMultiElementsEditor extends Component {
                     }
                   </FormSelect>
                 </td>
-                <td style={{cursor:'pointer', padding:'0.5em 0', textAlign:'center'}} onClick={ e => {
+                <td style={{cursor:'pointer', padding:'0.5em 0', textAlign:'center', color: SharedStyle.SECONDARY_COLOR.main}} onClick={ e => {
                   if( !this.state.selectedGroupID || this.state.selectedGroupID === '' || !selecteds || !selecteds.size ) return;
 
                   let selectedJs = selecteds.toJS();

@@ -21,8 +21,8 @@ const VISIBILITY_MODE = {
   MODE_ROTATING_ITEM
 };
 
-const tableStyle = { width: '100%' };
-const firstTdStyle = { width: '6em' };
+const tableStyle = { width: '100%', color: 'rgba(255, 255, 255, 0.95)' };
+const firstTdStyle = { width: '6em', color: 'rgba(255, 255, 255, 0.6)' };
 const inputStyle = { textAlign: 'left' };
 const styleEditButton = {
   marginLeft: '5px',
@@ -38,7 +38,8 @@ const tablegroupStyle = {
   cursor: 'pointer',
   maxHeight: '20em',
   marginLeft: '1px',
-  marginTop: '1em'
+  marginTop: '1em',
+  color: 'rgba(255, 255, 255, 0.95)'
 };
 
 const iconColStyle = {width: '2em'};
@@ -120,7 +121,7 @@ export default class PanelGroupEditor extends Component {
           {
             elements.size ?
               <div>
-                <p style={{textAlign:'center', borderBottom:SharedStyle.PRIMARY_COLOR.border , paddingBottom:'1em'}}>{this.context.translator.t('Group\'s Elements')}</p>
+                <p style={{textAlign:'center', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom:'1em', color: 'rgba(255, 255, 255, 0.6)'}}>{this.context.translator.t('Group\'s Elements')}</p>
                 <table style={tablegroupStyle}>
                   <thead>
                     <tr>
@@ -148,13 +149,13 @@ export default class PanelGroupEditor extends Component {
                                   style={styleEditButton}
                                 />
                               </td>
-                              <td style={{textAlign:'center'}}>
+                              <td style={{textAlign:'center', color: 'rgba(255, 255, 255, 0.6)'}}>
                                 {layerID}
                               </td>
-                              <td style={{textAlign:'center', textTransform:'capitalize'}}>
+                              <td style={{textAlign:'center', textTransform:'capitalize', color: 'rgba(255, 255, 255, 0.6)'}}>
                                 {elementPrototype}
                               </td>
-                              <td style={{textAlign:'center'}}>
+                              <td style={{textAlign:'center', color: 'rgba(255, 255, 255, 0.6)'}}>
                                 {element.name}
                               </td>
                             </tr>;

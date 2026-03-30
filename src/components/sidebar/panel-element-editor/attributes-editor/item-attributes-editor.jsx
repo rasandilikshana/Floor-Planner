@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import FormNumberInput from '../../../style/form-number-input';
 import FormTextInput from '../../../style/form-text-input';
 
-const tableStyle = { width: '100%' };
-const firstTdStyle = { width: '6em' };
+const tableStyle = { width: '100%', color: 'rgba(255, 255, 255, 0.95)' };
+const firstTdStyle = { width: '6em', color: 'rgba(255, 255, 255, 0.6)' };
 const inputStyle = { textAlign: 'left' };
 
 export default function ItemAttributesEditor({element, onUpdate, attributeFormData, state, ...rest}, {translator}) {
