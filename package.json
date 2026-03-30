@@ -79,13 +79,15 @@
     "react-svg-pan-zoom": "2.18.0",
     "react-tabs": "3.0.0",
     "redux": "4.0.1",
-    "shortid": "2.2.14"
+    "shortid": "2.2.14",
+    "styled-components": "^5.3.11"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",
     "babel-plugin-import-glob": "2.0.0",
+    "babel-plugin-styled-components": "^1.13.3",
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-preset-env": "1.7.0",
     "babel-preset-react": "6.24.1",
