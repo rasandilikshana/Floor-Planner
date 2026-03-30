@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {ThemeProvider} from 'styled-components';
+import styled, {ThemeProvider, createGlobalStyle} from 'styled-components';
 import theme from './theme';
 
 import Translator from './translator/translator';
@@ -22,14 +22,65 @@ const {Toolbar} = ToolbarComponents;
 const {Sidebar} = SidebarComponents;
 const {FooterBar} = FooterBarComponents;
 
-const toolbarW = 50;
+const toolbarW = 56;
 const sidebarW = 300;
-const footerBarH= 20;
+const footerBarH = 28;
 
-const wrapperStyle = {
-  display: 'flex',
-  flexFlow: 'row nowrap'
-};
+const PlannerWrapper = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  background: ${props => props.theme.colors.background};
+  position: relative;
+  overflow: hidden;
+`;
+
+const GlobalStyle = createGlobalStyle`
+  .react-planner-container {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .react-planner-container *::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .react-planner-container *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .react-planner-container *::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+  .react-planner-container *::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .react-planner-container .react-tabs__tab-list {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 0;
+    padding: 0;
+  }
+  .react-planner-container .react-tabs__tab {
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid transparent;
+    border-radius: 6px 6px 0 0;
+    padding: 4px 12px;
+    cursor: pointer;
+    display: inline-block;
+    list-style: none;
+  }
+  .react-planner-container .react-tabs__tab--selected {
+    background: rgba(99, 102, 241, 0.15);
+    color: #6366f1;
+    border-color: rgba(255, 255, 255, 0.08);
+    border-bottom-color: transparent;
+  }
+  .react-planner-container .react-tabs__tab-panel {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+`;
 
 class ReactPlanner extends Component {
 
@@ -69,12 +120,13 @@ class ReactPlanner extends Component {
 
     return (
       <ThemeProvider theme={theme}>
-        <div style={{...wrapperStyle, height}}>
+        <GlobalStyle />
+        <PlannerWrapper style={{height}} className="react-planner-container">
           <Toolbar width={toolbarW} height={toolbarH} state={extractedState} {...props} />
           <Content width={contentW} height={contentH} state={extractedState} {...props} onWheel={event => event.preventDefault()} />
           <Sidebar width={sidebarW} height={sidebarH} state={extractedState} {...props} />
           <FooterBar width={width} height={footerBarH} state={extractedState} {...props} />
-        </div>
+        </PlannerWrapper>
       </ThemeProvider>
     );
   }
