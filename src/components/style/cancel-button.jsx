@@ -2,13 +2,15 @@ import React from 'react';
 import Button from './button';
 
 const STYLE = {
-  borderColor: "#adadad",
-  backgroundColor: "#e6e6e6"
+  borderColor: 'rgba(255, 255, 255, 0.08)',
+  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+  color: 'rgba(255, 255, 255, 0.6)'
 };
 
 const STYLE_HOVER = {
-  backgroundColor: "#d4d4d4",
-  borderColor: "#8c8c8c"
+  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+  borderColor: 'rgba(255, 255, 255, 0.15)',
+  color: 'rgba(255, 255, 255, 0.95)'
 };
 
 export default function CancelButton({children, ...rest}) {

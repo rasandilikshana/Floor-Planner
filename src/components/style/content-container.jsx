@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 const STYLE = {
   padding: '0 20px',
-  overflowY: 'auto'
+  overflowY: 'auto',
+  background: 'rgba(255, 255, 255, 0.03)'
 };
 
 export default function ContentContainer({children, width, height, style = {}}) {

@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import * as SharedStyle from '../../shared-style';
 
 const STYLE_INPUT = {
   display: 'block',
   width: '100%',
-  padding: '0 2px',
+  padding: '0 8px',
   fontSize: '13px',
   lineHeight: '1.25',
-  color: SharedStyle.PRIMARY_COLOR.input,
-  backgroundColor: SharedStyle.COLORS.white,
+  color: 'rgba(255, 255, 255, 0.95)',
+  backgroundColor: 'rgba(0, 0, 0, 0.3)',
   backgroundImage: 'none',
-  border: '1px solid rgba(0,0,0,.15)',
+  border: '1px solid rgba(255, 255, 255, 0.08)',
   outline: 'none',
   height: '30px',
+  borderRadius: '6px',
+  transition: 'border-color 150ms cubic-bezier(0.4, 0, 0.2, 1)',
 };
 
 
@@ -27,7 +28,10 @@ export default class FormTextInput extends Component {
     let { style, ...rest } = this.props;
 
     let textInputStyle = { ...STYLE_INPUT, ...style };
-    if (this.state.focus) textInputStyle.border = `1px solid ${SharedStyle.SECONDARY_COLOR.main}`;
+    if (this.state.focus) {
+      textInputStyle.border = '1px solid #6366f1';
+      textInputStyle.boxShadow = '0 0 0 2px rgba(99, 102, 241, 0.15)';
+    }
 
     return <input
       onFocus={e => this.setState({ focus: true })}

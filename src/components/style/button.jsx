@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import * as SharedStyle from '../../shared-style';
 
 const BASE_STYLE = {
   display: "inline-block",
@@ -16,13 +15,15 @@ const BASE_STYLE = {
   userSelect: "none",
   padding: "5px 14px",
   fontSize: "14px",
-  color: SharedStyle.COLORS.black,
-  fonWeight: "400px",
-  transition: "background-color 175ms ease, border 175ms ease",
+  color: 'rgba(255, 255, 255, 0.95)',
+  fontWeight: "400",
+  transition: "all 200ms cubic-bezier(0.4, 0, 0.2, 1)",
   outline: "none",
-  borderRadius: "2px",
+  borderRadius: "6px",
   borderWidth: "1px",
-  borderType: "solid",
+  borderStyle: "solid",
+  borderColor: 'rgba(255, 255, 255, 0.08)',
+  backgroundColor: 'rgba(255, 255, 255, 0.05)',
   width: '100%'
 };
 
@@ -62,12 +63,12 @@ Button.defaultProps = {
   type: "button",
   size: "normal",
   style: {
-    backgroundColor: "#e6e6e6",
-    borderColor: "#adadad",
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    borderColor: 'rgba(255, 255, 255, 0.08)',
   },
   styleHover: {
-    backgroundColor: "#d4d4d4",
-    borderColor: "#8c8c8c"
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderColor: 'rgba(255, 255, 255, 0.15)',
   },
 };
 
@@ -77,4 +78,3 @@ Button.propTypes = {
   styleHover: PropTypes.object,
   size: PropTypes.oneOf(['large', 'normal', 'small']),
 };
-

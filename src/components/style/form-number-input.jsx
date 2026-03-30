@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as SharedStyle from '../../shared-style';
 import { MdUpdate } from 'react-icons/md';
 import { KEYBOARD_BUTTON_CODE } from '../../constants';
 
 const STYLE_INPUT = {
   display: 'block',
   width: '100%',
-  padding: '0 2px',
+  padding: '0 8px',
   fontSize: '13px',
   lineHeight: '1.25',
-  color: SharedStyle.PRIMARY_COLOR.input,
-  backgroundColor: SharedStyle.COLORS.white,
+  color: 'rgba(255, 255, 255, 0.95)',
+  backgroundColor: 'rgba(0, 0, 0, 0.3)',
   backgroundImage: 'none',
-  border: '1px solid rgba(0,0,0,.15)',
+  border: '1px solid rgba(255, 255, 255, 0.08)',
   outline: 'none',
   height: '30px',
+  borderRadius: '6px',
+  transition: 'border-color 150ms cubic-bezier(0.4, 0, 0.2, 1)',
 };
 
 const confirmStyle = {
@@ -25,9 +26,10 @@ const confirmStyle = {
   height: '2em',
   right: '0.35em',
   top: '0.35em',
-  backgroundColor: SharedStyle.SECONDARY_COLOR.main,
+  backgroundColor: '#6366f1',
   color: '#FFF',
-  transition: 'all 0.1s linear'
+  transition: 'all 0.1s linear',
+  borderRadius: '4px'
 };
 
 export default class FormNumberInput extends Component {
@@ -52,7 +54,10 @@ export default class FormNumberInput extends Component {
     let { value, min, max, precision, onChange, onValid, onInvalid, style, placeholder } = this.props;
     let numericInputStyle = { ...STYLE_INPUT, ...style };
 
-    if (this.state.focus) numericInputStyle.border = `1px solid ${SharedStyle.SECONDARY_COLOR.main}`;
+    if (this.state.focus) {
+      numericInputStyle.border = '1px solid #6366f1';
+      numericInputStyle.boxShadow = '0 0 0 2px rgba(99, 102, 241, 0.15)';
+    }
 
     let regexp = new RegExp(`^-?([0-9]+)?\\.?([0-9]{0,${precision}})?$`);
 
