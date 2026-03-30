@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import If from '../../utils/react-if';
 import FooterToggleButton from './footer-toggle-button';
 import FooterContentButton from './footer-content-button';
@@ -9,24 +10,27 @@ import * as SharedStyle from '../../shared-style';
 import { MdAddCircle, MdWarning } from 'react-icons/md';
 import { VERSION } from '../../version';
 
-const footerBarStyle = {
-  position: 'absolute',
-  bottom: 0,
-  lineHeight: '14px',
-  fontSize: '12px',
-  color: SharedStyle.COLORS.white,
-  backgroundColor: SharedStyle.SECONDARY_COLOR.alt,
-  padding: '3px 1em',
-  margin: 0,
-  boxSizing: 'border-box',
-  cursor: 'default',
-  userSelect: 'none',
-  zIndex: '9001'
-};
+const FooterBarWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  line-height: 16px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4px 1em;
+  margin: 0;
+  box-sizing: border-box;
+  cursor: default;
+  user-select: none;
+  z-index: 9001;
+`;
 
 export const leftTextStyle = {
   position: 'relative',
-  borderRight: '1px solid #FFF',
+  borderRight: '1px solid rgba(255,255,255,0.08)',
   float: 'left',
   padding: '0 1em',
   display: 'inline-block'
@@ -34,7 +38,7 @@ export const leftTextStyle = {
 
 export const rightTextStyle = {
   position: 'relative',
-  borderLeft: '1px solid #FFF',
+  borderLeft: '1px solid rgba(255,255,255,0.08)',
   float: 'right',
   padding: '0 1em',
   display: 'inline-block'
@@ -47,7 +51,7 @@ const coordStyle = {
   padding: 0
 };
 
-const appMessageStyle = { borderBottom: '1px solid #555', lineHeight: '1.5em' };
+const appMessageStyle = { borderBottom: '1px solid rgba(255,255,255,0.08)', lineHeight: '1.5em' };
 
 export default class FooterBar extends Component {
   constructor(props, context) {
@@ -79,7 +83,7 @@ export default class FooterBar extends Component {
     let updateSnapMask = (val) => projectActions.toggleSnap(globalState.snapMask.merge(val));
 
     return (
-      <div style={{ ...footerBarStyle, width, height }}>
+      <FooterBarWrapper style={{ width, height }}>
 
         <If condition={MODE_SNAPPING.includes(mode)}>
           <div style={leftTextStyle}>
@@ -169,7 +173,7 @@ export default class FooterBar extends Component {
           />
         </div>
 
-      </div>
+      </FooterBarWrapper>
     );
   }
 }

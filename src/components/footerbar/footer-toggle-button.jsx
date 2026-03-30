@@ -1,38 +1,37 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as SharedStyle from '../../shared-style';
+import styled from 'styled-components';
 
-const toggleButtonStyle = {
-  width: '5.5em',
-  color: '#CCC',
-  textAlign: 'center',
-  cursor: 'pointer',
-  userSelect: 'none',
-  border: '1px solid transparent',
-  margin: '-1px 5px 0 5px',
-  borderRadius: '2px',
-  display: 'inline-block'
-};
+const ToggleBtn = styled.div`
+  width: 5.5em;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  margin: -1px 5px 0 5px;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 12px;
+  padding: 1px 0;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: ${props => props.isActive ? '#6366f1' : 'rgba(255, 255, 255, 0.4)'};
+  background: ${props => props.isActive ? 'rgba(99, 102, 241, 0.2)' : 'transparent'};
+  border-color: ${props => props.isActive ? 'rgba(99, 102, 241, 0.3)' : 'transparent'};
 
-const toggleButtonStyleOver = {
-  ...toggleButtonStyle,
-  backgroundColor: '#1c82c6',
-  border: '1px solid #FFF',
-  color: SharedStyle.COLORS.white
-};
+  &:hover {
+    color: ${props => props.isActive ? '#6366f1' : 'rgba(255, 255, 255, 0.8)'};
+    background: ${props => props.isActive ? 'rgba(99, 102, 241, 0.2)' : 'rgba(255, 255, 255, 0.05)'};
+  }
+`;
 
 export default class FooterToggleButton extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      over: false,
       active: this.props.toggleState || false
     };
   }
-
-  toggleOver(e) { this.setState({ over: true }); }
-  toggleOut(e) { this.setState({ over: false }); }
 
   toggle(e) {
     let isActive = !this.state.active;
@@ -49,7 +48,6 @@ export default class FooterToggleButton extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if( this.state.over != nextState.over ) return true;
     if( this.state.active != nextState.active ) return true;
     if( this.props.toggleState != nextProps.toggleState ) return true;
 
@@ -64,15 +62,13 @@ export default class FooterToggleButton extends Component {
   render() {
 
     return (
-      <div
-        style={this.state.over || this.state.active ? toggleButtonStyleOver : toggleButtonStyle}
-        onMouseOver={e => this.toggleOver(e)}
-        onMouseOut={e => this.toggleOut(e)}
+      <ToggleBtn
+        isActive={this.state.active}
         onClick={e => this.toggle(e)}
         title={this.props.title}
       >
         {this.props.text}
-      </div>
+      </ToggleBtn>
     );
   }
 }
