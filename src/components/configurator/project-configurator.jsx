@@ -45,7 +45,7 @@ export default class ProjectConfigurator extends Component {
     let {projectActions, translator} = this.context;
 
     return (
-      <ContentContainer width={width} height={height}>
+      <ContentContainer width={width} height={height} style={{background: 'rgba(15, 15, 20, 0.95)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)'}}>
         <ContentTitle>{translator.t('Project config')}</ContentTitle>
 
         <form onSubmit={e => this.onSubmit(e)}>
