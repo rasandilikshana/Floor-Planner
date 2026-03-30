@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"/media/rasan/windows-drive/Projects/with Savishka/react-planner/src/\"*/)"
+    ]
+  }
+}
