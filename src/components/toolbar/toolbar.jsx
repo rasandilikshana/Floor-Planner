@@ -14,6 +14,7 @@ import {
   MODE_CONFIGURING_PROJECT
 } from '../../constants';
 import * as SharedStyle from '../../shared-style';
+import styled from 'styled-components';
 
 const iconTextStyle = {
   fontSize: '19px',
@@ -26,10 +27,17 @@ const iconTextStyle = {
 const Icon2D = ( {style} ) => <p style={{...iconTextStyle, ...style}}>2D</p>;
 const Icon3D = ( {style} ) => <p style={{...iconTextStyle, ...style}}>3D</p>;
 
-const ASIDE_STYLE = {
-  backgroundColor: SharedStyle.PRIMARY_COLOR.main,
-  padding: '10px'
-};
+const ToolbarAside = styled.aside`
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+`;
 
 const sortButtonsCb = (a, b) => {
   if (a.index === undefined || a.index === null) {
@@ -162,9 +170,9 @@ export default class Toolbar extends Component {
     }));
 
     return (
-      <aside style={{ ...ASIDE_STYLE, maxWidth: width, maxHeight: height }} className='toolbar'>
+      <ToolbarAside style={{ maxWidth: width, maxHeight: height }} className='toolbar'>
         {sorter.sort(sortButtonsCb).map(mapButtonsCb)}
-      </aside>
+      </ToolbarAside>
     )
   }
 }

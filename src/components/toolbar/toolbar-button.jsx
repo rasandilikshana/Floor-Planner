@@ -1,51 +1,45 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as SharedStyle from '../../shared-style';
+import styled from 'styled-components';
 
-//http://www.cssportal.com/css-tooltip-generator/
+const ButtonWrapper = styled.div`
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 18px;
+  position: relative;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: ${props => props.isActive ? '#6366f1' : 'rgba(255, 255, 255, 0.6)'};
+  background: ${props => props.isActive ? 'rgba(99, 102, 241, 0.15)' : 'transparent'};
+  box-shadow: ${props => props.isActive ? '0 0 12px rgba(99, 102, 241, 0.2)' : 'none'};
 
-const STYLE = {
-  width: '30px',
-  height: '30px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  marginBottom: '5px',
-  fontSize: '25px',
-  position: 'relative',
-  cursor: 'pointer'
-};
+  &:hover {
+    background: ${props => props.isActive ? 'rgba(99, 102, 241, 0.15)' : 'rgba(255, 255, 255, 0.08)'};
+    color: ${props => props.isActive ? '#6366f1' : 'rgba(255, 255, 255, 0.95)'};
+  }
+`;
 
-const STYLE_TOOLTIP = {
-  position: 'absolute',
-  width: '140px',
-  color: SharedStyle.COLORS.white,
-  background: SharedStyle.COLORS.black,
-  height: '30px',
-  lineHeight: '30px',
-  textAlign: 'center',
-  visibility: 'visible',
-  borderRadius: '6px',
-  opacity: '0.8',
-  left: '100%',
-  top: '50%',
-  marginTop: '-15px',
-  marginLeft: '15px',
-  zIndex: '999',
-  fontSize: '12px'
-};
-
-const STYLE_TOOLTIP_PIN = {
-  position: 'absolute',
-  top: '50%',
-  right: '100%',
-  marginTop: '-8px',
-  width: '0',
-  height: '0',
-  borderRight: '8px solid #000000',
-  borderTop: '8px solid transparent',
-  borderBottom: '8px solid transparent'
-};
+const Tooltip = styled.div`
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 15, 20, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  z-index: 999;
+  pointer-events: none;
+`;
 
 export default class ToolbarButton extends Component {
 
@@ -56,26 +50,18 @@ export default class ToolbarButton extends Component {
 
   render() {
     let { state, props } = this;
-    let color = props.active || state.active ? SharedStyle.SECONDARY_COLOR.icon : SharedStyle.PRIMARY_COLOR.icon;
+    let isActive = props.active || state.active;
 
     return (
-      <div style={STYLE}
+      <ButtonWrapper
+        isActive={props.active}
         onMouseOver={event => this.setState({ active: true })}
-        onMouseOut={event => this.setState({ active: false })}>
-        <div style={{ color }} onClick={props.onClick}>
-          {props.children}
-        </div>
-
-        {
-          state.active ?
-          <div style={STYLE_TOOLTIP}>
-            <span style={STYLE_TOOLTIP_PIN} />
-            {props.tooltip}
-          </div>
-          : null
-        }
-
-      </div>
+        onMouseOut={event => this.setState({ active: false })}
+        onClick={props.onClick}
+      >
+        {props.children}
+        {state.active ? <Tooltip>{props.tooltip}</Tooltip> : null}
+      </ButtonWrapper>
     )
   }
 }
