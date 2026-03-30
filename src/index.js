@@ -4,6 +4,7 @@ import * as Models from './models';
 import reducer from './reducers/reducer';
 import ReactPlanner from './react-planner';
 import Plugins from './plugins/export';
+import theme from './theme';
 import * as ReactPlannerConstants from './constants';
 import * as ReactPlannerSharedStyle from './shared-style';
 import ReactPlannerComponents from './components/export';
@@ -20,6 +21,7 @@ export {
   reducer,
   ReactPlanner,
   Plugins,
+  theme,
   ReactPlannerConstants,
   ReactPlannerSharedStyle,
   ReactPlannerComponents,

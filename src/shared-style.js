@@ -29,20 +29,20 @@ export const MATERIAL_COLORS = {
 };
 
 export const PRIMARY_COLOR = {
-  main: '#28292D',
-  alt: '#2E2F33',
-  icon: '#C2C2C2',
-  border: '1px solid #555',
-  text_main: COLORS.white,
-  text_alt: '#EBEBEB',
-  input: '#55595C'
+  main: '#0f0f14',
+  alt: 'rgba(255, 255, 255, 0.05)',
+  icon: 'rgba(255, 255, 255, 0.6)',
+  border: '1px solid rgba(255, 255, 255, 0.08)',
+  text_main: 'rgba(255, 255, 255, 0.95)',
+  text_alt: 'rgba(255, 255, 255, 0.6)',
+  input: 'rgba(255, 255, 255, 0.95)'
 };
 
 export const SECONDARY_COLOR = {
-  main: '#1CA6FC',
-  alt: '#005FAF',
-  icon: '#1CA6FC',
-  border: '1px solid #FFF'
+  main: '#6366f1',
+  alt: '#8b5cf6',
+  icon: '#6366f1',
+  border: '1px solid rgba(255, 255, 255, 0.15)'
 };
 
 export const MESH_SELECTED = '#99C3FB';
