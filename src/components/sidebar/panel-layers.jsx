@@ -33,7 +33,7 @@ const styleEditButton = {
   marginLeft: '5px',
   border: '0px',
   background: 'none',
-  color: SharedStyle.COLORS.white,
+  color: 'rgba(255, 255, 255, 0.6)',
   fontSize: '14px',
   outline: '0px'
 };
@@ -53,9 +53,9 @@ const styleHoverColor = {color: SharedStyle.SECONDARY_COLOR.main};
 const styleEditButtonHover = {...styleEditButton, ...styleHoverColor};
 const styleAddLabel = {fontSize: '10px', marginLeft: '5px'};
 const styleEyeVisible = {fontSize: '1.25em'};
-const styleEyeHidden = {...styleEyeVisible, color: '#a5a1a1'};
+const styleEyeHidden = {...styleEyeVisible, color: 'rgba(255, 255, 255, 0.35)'};
 const firstTdStyle = {width: '6em'};
-const newLayerLableStyle = {margin: '0.5em 0', fontSize: '1.3em', cursor: 'pointer', textAlign: 'center'};
+const newLayerLableStyle = {margin: '0.5em 0', fontSize: '1.3em', cursor: 'pointer', textAlign: 'center', transition: 'color 200ms cubic-bezier(0.4, 0, 0.2, 1)'};
 const newLayerLableHoverStyle = {...newLayerLableStyle, ...styleHoverColor};
 const layerInputTableStyle = {width: '100%', borderSpacing: '2px 0', padding: '5px 15px'};
 const inputTableButtonStyle = {float: 'right', marginTop: '0.5em', borderSpacing: '0'};

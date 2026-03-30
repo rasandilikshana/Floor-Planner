@@ -11,12 +11,16 @@ const tabStyle = { margin: '1em' };
 const iconStyle = {
   fontSize: '14px',
   margin: '2px',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  color: 'rgba(255, 255, 255, 0.6)',
+  transition: 'color 200ms'
 };
 
 const addGuideStyle = {
   cursor: 'pointer',
-  height: '2em'
+  height: '2em',
+  color: 'rgba(255, 255, 255, 0.6)',
+  transition: 'color 200ms'
 };
 
 const tableTabStyle = {

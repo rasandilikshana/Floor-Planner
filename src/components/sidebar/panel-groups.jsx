@@ -24,7 +24,7 @@ const styleEditButton = {
   marginLeft: '5px',
   border: '0px',
   background: 'none',
-  color: SharedStyle.COLORS.white,
+  color: 'rgba(255, 255, 255, 0.6)',
   fontSize: '14px',
   outline: '0px'
 };
@@ -42,7 +42,7 @@ const styleHoverColor = {color: SharedStyle.SECONDARY_COLOR.main};
 const styleEditButtonHover = {...styleEditButton, ...styleHoverColor};
 const styleAddLabel = {fontSize: '10px', marginLeft: '5px'};
 const styleEyeVisible = {fontSize: '1.25em'};
-const styleEyeHidden = {...styleEyeVisible, color: '#a5a1a1'};
+const styleEyeHidden = {...styleEyeVisible, color: 'rgba(255, 255, 255, 0.35)'};
 const newLayerLableStyle = {fontSize: '1.3em', cursor: 'pointer', textAlign: 'center'};
 const newLayerLableHoverStyle = {...newLayerLableStyle, ...styleHoverColor};
 
