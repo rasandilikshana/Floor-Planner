@@ -15,9 +15,10 @@ import { Seq } from 'immutable';
 import { MODE_IDLE, MODE_2D_ZOOM_IN, MODE_2D_ZOOM_OUT, MODE_2D_PAN, MODE_3D_VIEW, MODE_3D_FIRST_PERSON, MODE_WAITING_DRAWING_LINE, MODE_DRAWING_LINE, MODE_DRAWING_HOLE, MODE_DRAWING_ITEM, MODE_DRAGGING_LINE, MODE_DRAGGING_VERTEX, MODE_DRAGGING_ITEM, MODE_DRAGGING_HOLE, MODE_FITTING_IMAGE, MODE_UPLOADING_IMAGE, MODE_ROTATING_ITEM } from '../../../constants';
 import { FormSelect } from '../../../components/style/export';
 import { Group } from '../../../class/export';
+import * as SharedStyle from '../../../shared-style';
 
-var tableStyle = { width: '100%' };
-var firstTdStyle = { width: '6em' };
+var tableStyle = { width: '100%', color: 'rgba(255, 255, 255, 0.95)' };
+var firstTdStyle = { width: '6em', color: 'rgba(255, 255, 255, 0.6)' };
 
 var PanelMultiElementsEditor = function (_Component) {
   _inherits(PanelMultiElementsEditor, _Component);
@@ -68,7 +69,7 @@ var PanelMultiElementsEditor = function (_Component) {
           { style: { padding: '5px 15px' } },
           React.createElement(
             'p',
-            null,
+            { style: { color: 'rgba(255, 255, 255, 0.6)' } },
             'Multiselection tab'
           ),
           React.createElement(
@@ -109,7 +110,7 @@ var PanelMultiElementsEditor = function (_Component) {
                 ),
                 React.createElement(
                   'td',
-                  { style: { cursor: 'pointer', padding: '0.5em 0', textAlign: 'center' }, onClick: function onClick(e) {
+                  { style: { cursor: 'pointer', padding: '0.5em 0', textAlign: 'center', color: SharedStyle.SECONDARY_COLOR.main }, onClick: function onClick(e) {
                       if (!_this2.state.selectedGroupID || _this2.state.selectedGroupID === '' || !selecteds || !selecteds.size) return;
 
                       var selectedJs = selecteds.toJS();

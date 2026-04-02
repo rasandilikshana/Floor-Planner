@@ -41,23 +41,36 @@ var elementStyle = {
   padding: '0.5em',
   textAlign: 'center',
   display: 'inline-block',
-  border: '1px solid #CCC',
-  borderRadius: '0.2em'
+  border: '1px solid rgba(255, 255, 255, 0.08)',
+  borderRadius: '6px',
+  transition: 'all 200ms cubic-bezier(0.4, 0, 0.2, 1)',
+  background: 'rgba(255, 255, 255, 0.04)'
 };
 
 var elementSelectedStyle = _extends({}, elementStyle, {
   color: SharedStyle.SECONDARY_COLOR.main,
-  borderColor: SharedStyle.SECONDARY_COLOR.main
+  borderColor: SharedStyle.SECONDARY_COLOR.main,
+  background: 'rgba(99, 102, 241, 0.1)'
 });
 
 var categoryDividerStyle = {
   paddingBottom: '0.5em',
-  borderBottom: '1px solid #888'
+  borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
 };
 
 var tableSearchStyle = { width: '100%', marginTop: '0.8em' };
 var searchIconStyle = { fontSize: '1.5em' };
-var searchInputStyle = { fontSize: '1em', width: '100%', height: '1em', padding: '1em 0.5em' };
+var searchInputStyle = {
+  fontSize: '1em',
+  width: '100%',
+  height: '1em',
+  padding: '1em 0.5em',
+  background: 'rgba(0, 0, 0, 0.3)',
+  border: '1px solid rgba(255, 255, 255, 0.08)',
+  borderRadius: '6px',
+  color: 'rgba(255, 255, 255, 0.95)',
+  outline: 'none'
+};
 
 var PanelLayerElement = function (_Component) {
   _inherits(PanelLayerElement, _Component);

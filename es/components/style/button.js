@@ -2,6 +2,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _BASE_STYLE;
+
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10,11 +12,12 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as SharedStyle from '../../shared-style';
 
-var BASE_STYLE = {
+var BASE_STYLE = (_BASE_STYLE = {
   display: "inline-block",
   fontWeight: "400",
   lineHeight: "1.25",
@@ -28,15 +31,8 @@ var BASE_STYLE = {
   userSelect: "none",
   padding: "5px 14px",
   fontSize: "14px",
-  color: SharedStyle.COLORS.black,
-  fonWeight: "400px",
-  transition: "background-color 175ms ease, border 175ms ease",
-  outline: "none",
-  borderRadius: "2px",
-  borderWidth: "1px",
-  borderType: "solid",
-  width: '100%'
-};
+  color: 'rgba(255, 255, 255, 0.95)'
+}, _defineProperty(_BASE_STYLE, 'fontWeight', "400"), _defineProperty(_BASE_STYLE, 'transition', "all 200ms cubic-bezier(0.4, 0, 0.2, 1)"), _defineProperty(_BASE_STYLE, 'outline', "none"), _defineProperty(_BASE_STYLE, 'borderRadius', "6px"), _defineProperty(_BASE_STYLE, 'borderWidth', "1px"), _defineProperty(_BASE_STYLE, 'borderStyle', "solid"), _defineProperty(_BASE_STYLE, 'borderColor', 'rgba(255, 255, 255, 0.08)'), _defineProperty(_BASE_STYLE, 'backgroundColor', 'rgba(255, 255, 255, 0.05)'), _defineProperty(_BASE_STYLE, 'width', '100%'), _BASE_STYLE);
 
 var BASE_STYLE_SIZE = {
   small: {
@@ -105,12 +101,12 @@ Button.defaultProps = {
   type: "button",
   size: "normal",
   style: {
-    backgroundColor: "#e6e6e6",
-    borderColor: "#adadad"
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    borderColor: 'rgba(255, 255, 255, 0.08)'
   },
   styleHover: {
-    backgroundColor: "#d4d4d4",
-    borderColor: "#8c8c8c"
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderColor: 'rgba(255, 255, 255, 0.15)'
   }
 };
 

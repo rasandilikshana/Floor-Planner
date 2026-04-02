@@ -31,7 +31,7 @@ var styleEditButton = {
   marginLeft: '5px',
   border: '0px',
   background: 'none',
-  color: SharedStyle.COLORS.white,
+  color: 'rgba(255, 255, 255, 0.6)',
   fontSize: '14px',
   outline: '0px'
 };
@@ -49,7 +49,7 @@ var styleHoverColor = { color: SharedStyle.SECONDARY_COLOR.main };
 var styleEditButtonHover = _extends({}, styleEditButton, styleHoverColor);
 var styleAddLabel = { fontSize: '10px', marginLeft: '5px' };
 var styleEyeVisible = { fontSize: '1.25em' };
-var styleEyeHidden = _extends({}, styleEyeVisible, { color: '#a5a1a1' });
+var styleEyeHidden = _extends({}, styleEyeVisible, { color: 'rgba(255, 255, 255, 0.35)' });
 var newLayerLableStyle = { fontSize: '1.3em', cursor: 'pointer', textAlign: 'center' };
 var newLayerLableHoverStyle = _extends({}, newLayerLableStyle, styleHoverColor);
 

@@ -17,7 +17,7 @@ import * as SharedStyle from '../../shared-style';
 import styled from 'styled-components';
 
 const iconTextStyle = {
-  fontSize: '19px',
+  fontSize: 'inherit',
   textDecoration: 'none',
   fontWeight: 'bold',
   margin: '0px',
@@ -170,7 +170,7 @@ export default class Toolbar extends Component {
     }));
 
     return (
-      <ToolbarAside style={{ maxWidth: width, maxHeight: height }} className='toolbar'>
+      <ToolbarAside style={{ width, maxHeight: height }} className='toolbar'>
         {sorter.sort(sortButtonsCb).map(mapButtonsCb)}
       </ToolbarAside>
     )

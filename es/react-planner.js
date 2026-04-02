@@ -2,6 +2,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _templateObject = _taggedTemplateLiteral(['\n  display: flex;\n  flex-flow: row nowrap;\n  background: ', ';\n  position: relative;\n  overflow: hidden;\n'], ['\n  display: flex;\n  flex-flow: row nowrap;\n  background: ', ';\n  position: relative;\n  overflow: hidden;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  .react-planner-container {\n    font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    color: rgba(255, 255, 255, 0.95);\n  }\n\n  .react-planner-container *::-webkit-scrollbar {\n    width: 5px;\n    height: 5px;\n  }\n  .react-planner-container *::-webkit-scrollbar-track {\n    background: transparent;\n  }\n  .react-planner-container *::-webkit-scrollbar-thumb {\n    background: rgba(255, 255, 255, 0.1);\n    border-radius: 3px;\n  }\n  .react-planner-container *::-webkit-scrollbar-thumb:hover {\n    background: rgba(255, 255, 255, 0.2);\n  }\n\n  .react-planner-container .react-tabs__tab-list {\n    border-bottom: 1px solid rgba(255, 255, 255, 0.08);\n    margin: 0;\n    padding: 0;\n  }\n  .react-planner-container .react-tabs__tab {\n    color: rgba(255, 255, 255, 0.5);\n    border: 1px solid transparent;\n    border-radius: 6px 6px 0 0;\n    padding: 4px 12px;\n    cursor: pointer;\n    display: inline-block;\n    list-style: none;\n  }\n  .react-planner-container .react-tabs__tab--selected {\n    background: rgba(99, 102, 241, 0.15);\n    color: #6366f1;\n    border-color: rgba(255, 255, 255, 0.08);\n    border-bottom-color: transparent;\n  }\n  .react-planner-container .react-tabs__tab-panel {\n    border-top: 1px solid rgba(255, 255, 255, 0.08);\n  }\n'], ['\n  .react-planner-container {\n    font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    color: rgba(255, 255, 255, 0.95);\n  }\n\n  .react-planner-container *::-webkit-scrollbar {\n    width: 5px;\n    height: 5px;\n  }\n  .react-planner-container *::-webkit-scrollbar-track {\n    background: transparent;\n  }\n  .react-planner-container *::-webkit-scrollbar-thumb {\n    background: rgba(255, 255, 255, 0.1);\n    border-radius: 3px;\n  }\n  .react-planner-container *::-webkit-scrollbar-thumb:hover {\n    background: rgba(255, 255, 255, 0.2);\n  }\n\n  .react-planner-container .react-tabs__tab-list {\n    border-bottom: 1px solid rgba(255, 255, 255, 0.08);\n    margin: 0;\n    padding: 0;\n  }\n  .react-planner-container .react-tabs__tab {\n    color: rgba(255, 255, 255, 0.5);\n    border: 1px solid transparent;\n    border-radius: 6px 6px 0 0;\n    padding: 4px 12px;\n    cursor: pointer;\n    display: inline-block;\n    list-style: none;\n  }\n  .react-planner-container .react-tabs__tab--selected {\n    background: rgba(99, 102, 241, 0.15);\n    color: #6366f1;\n    border-color: rgba(255, 255, 255, 0.08);\n    border-bottom-color: transparent;\n  }\n  .react-planner-container .react-tabs__tab-panel {\n    border-top: 1px solid rgba(255, 255, 255, 0.08);\n  }\n']);
+
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10,10 +13,14 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import theme from './theme';
 
 import Translator from './translator/translator';
 import Catalog from './catalog/catalog';
@@ -28,14 +35,18 @@ var Sidebar = SidebarComponents.Sidebar;
 var FooterBar = FooterBarComponents.FooterBar;
 
 
-var toolbarW = 50;
+var toolbarW = 56;
 var sidebarW = 300;
-var footerBarH = 20;
+var footerBarH = 28;
 
-var wrapperStyle = {
-  display: 'flex',
-  flexFlow: 'row nowrap'
-};
+var PlannerWrapper = styled.div.withConfig({
+  displayName: 'react-planner__PlannerWrapper',
+  componentId: 'sc-sg7sws-0'
+})(_templateObject, function (props) {
+  return props.theme.colors.background;
+});
+
+var GlobalStyle = createGlobalStyle(_templateObject2);
 
 var ReactPlanner = function (_Component) {
   _inherits(ReactPlanner, _Component);
@@ -105,14 +116,19 @@ var ReactPlanner = function (_Component) {
       var extractedState = stateExtractor(state);
 
       return React.createElement(
-        'div',
-        { style: _extends({}, wrapperStyle, { height: height }) },
-        React.createElement(Toolbar, _extends({ width: toolbarW, height: toolbarH, state: extractedState }, props)),
-        React.createElement(Content, _extends({ width: contentW, height: contentH, state: extractedState }, props, { onWheel: function onWheel(event) {
-            return event.preventDefault();
-          } })),
-        React.createElement(Sidebar, _extends({ width: sidebarW, height: sidebarH, state: extractedState }, props)),
-        React.createElement(FooterBar, _extends({ width: width, height: footerBarH, state: extractedState }, props))
+        ThemeProvider,
+        { theme: theme },
+        React.createElement(GlobalStyle, null),
+        React.createElement(
+          PlannerWrapper,
+          { style: { height: height }, className: 'react-planner-container' },
+          React.createElement(Toolbar, _extends({ width: toolbarW, height: toolbarH, state: extractedState }, props)),
+          React.createElement(Content, _extends({ width: contentW, height: contentH, state: extractedState }, props, { onWheel: function onWheel(event) {
+              return event.preventDefault();
+            } })),
+          React.createElement(Sidebar, _extends({ width: sidebarW, height: sidebarH, state: extractedState }, props)),
+          React.createElement(FooterBar, _extends({ width: width, height: footerBarH, state: extractedState }, props))
+        )
       );
     }
   }]);

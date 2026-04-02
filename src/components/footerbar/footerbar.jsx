@@ -13,8 +13,8 @@ import { VERSION } from '../../version';
 const FooterBarWrapper = styled.div`
   position: absolute;
   bottom: 0;
-  line-height: 16px;
-  font-size: 12px;
+  line-height: clamp(16px, 1.2vh, 22px);
+  font-size: clamp(11px, 0.8vw, 16px);
   color: rgba(255, 255, 255, 0.6);
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);

@@ -28,7 +28,7 @@ var toggleButtonStyle = {
 };
 
 var toggleButtonStyleOver = _extends({}, toggleButtonStyle, {
-  color: SharedStyle.COLORS.white
+  color: 'rgba(255,255,255,0.95)'
 });
 
 var contentContainerStyleActive = {
@@ -37,8 +37,10 @@ var contentContainerStyleActive = {
   height: '40%',
   left: 0,
   bottom: 20,
-  backgroundColor: SharedStyle.PRIMARY_COLOR.alt,
-  borderTop: SharedStyle.PRIMARY_COLOR.border,
+  backgroundColor: 'rgba(15,15,20,0.95)',
+  backdropFilter: 'blur(16px)',
+  WebkitBackdropFilter: 'blur(16px)',
+  borderTop: '1px solid rgba(255,255,255,0.08)',
   zIndex: 0,
   padding: 0,
   margin: 0,
@@ -56,7 +58,7 @@ var contentHeaderStyle = {
   height: '2em',
   top: 0,
   left: 0,
-  borderBottom: SharedStyle.PRIMARY_COLOR.border
+  borderBottom: '1px solid rgba(255,255,255,0.08)'
 };
 
 var titleStyle = {
@@ -81,13 +83,13 @@ var iconCloseStyleOut = {
   right: 0,
   top: 0,
   padding: '0.5em',
-  borderLeft: SharedStyle.PRIMARY_COLOR.border,
+  borderLeft: '1px solid rgba(255,255,255,0.08)',
   cursor: 'pointer'
 };
 
 var iconCloseStyleOver = _extends({}, iconCloseStyleOut, {
-  color: SharedStyle.COLORS.white,
-  backgroundColor: SharedStyle.SECONDARY_COLOR.alt
+  color: '#ef4444',
+  backgroundColor: 'rgba(239,68,68,0.2)'
 });
 
 var iconStyle = {

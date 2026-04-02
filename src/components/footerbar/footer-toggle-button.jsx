@@ -11,7 +11,7 @@ const ToggleBtn = styled.div`
   margin: -1px 5px 0 5px;
   border-radius: 4px;
   display: inline-block;
-  font-size: 12px;
+  font-size: clamp(11px, 0.8vw, 16px);
   padding: 1px 0;
   transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
   color: ${props => props.isActive ? '#6366f1' : 'rgba(255, 255, 255, 0.4)'};

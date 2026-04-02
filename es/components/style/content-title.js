@@ -4,10 +4,9 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as SharedStyle from '../../shared-style';
 
 var STYLE = {
-  color: SharedStyle.PRIMARY_COLOR.alt,
+  color: 'rgba(255, 255, 255, 0.95)',
   fontWeight: 300
 };
 

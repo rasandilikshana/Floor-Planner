@@ -22,9 +22,10 @@ const {Toolbar} = ToolbarComponents;
 const {Sidebar} = SidebarComponents;
 const {FooterBar} = FooterBarComponents;
 
-const toolbarW = 56;
-const sidebarW = 300;
-const footerBarH = 28;
+// Responsive sizing: scale chrome proportionally on larger displays
+const getToolbarW = (width) => Math.min(Math.max(56, Math.round(width * 0.032)), 96);
+const getSidebarW = (width) => Math.min(Math.max(300, Math.round(width * 0.16)), 520);
+const getFooterBarH = (height) => Math.min(Math.max(28, Math.round(height * 0.03)), 48);
 
 const PlannerWrapper = styled.div`
   display: flex;
@@ -110,6 +111,10 @@ class ReactPlanner extends Component {
 
   render() {
     let {width, height, state, stateExtractor, ...props} = this.props;
+
+    let toolbarW = getToolbarW(width);
+    let sidebarW = getSidebarW(width);
+    let footerBarH = getFooterBarH(height);
 
     let contentW = width - toolbarW - sidebarW;
     let toolbarH = height - footerBarH;

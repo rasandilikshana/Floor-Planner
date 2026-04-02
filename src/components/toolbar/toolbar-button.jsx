@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const ButtonWrapper = styled.div`
-  width: 36px;
-  height: 36px;
+  width: clamp(36px, 2.5vw, 64px);
+  height: clamp(36px, 2.5vw, 64px);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: clamp(18px, 1.3vw, 28px);
   position: relative;
   cursor: pointer;
   transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);

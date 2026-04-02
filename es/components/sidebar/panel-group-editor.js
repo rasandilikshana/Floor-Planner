@@ -26,8 +26,8 @@ var VISIBILITY_MODE = {
   MODE_ROTATING_ITEM: MODE_ROTATING_ITEM
 };
 
-var tableStyle = { width: '100%' };
-var firstTdStyle = { width: '6em' };
+var tableStyle = { width: '100%', color: 'rgba(255, 255, 255, 0.95)' };
+var firstTdStyle = { width: '6em', color: 'rgba(255, 255, 255, 0.6)' };
 var inputStyle = { textAlign: 'left' };
 var styleEditButton = {
   marginLeft: '5px',
@@ -43,7 +43,8 @@ var tablegroupStyle = {
   cursor: 'pointer',
   maxHeight: '20em',
   marginLeft: '1px',
-  marginTop: '1em'
+  marginTop: '1em',
+  color: 'rgba(255, 255, 255, 0.95)'
 };
 
 var iconColStyle = { width: '2em' };
@@ -183,7 +184,7 @@ var PanelGroupEditor = function (_Component) {
             null,
             React.createElement(
               'p',
-              { style: { textAlign: 'center', borderBottom: SharedStyle.PRIMARY_COLOR.border, paddingBottom: '1em' } },
+              { style: { textAlign: 'center', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '1em', color: 'rgba(255, 255, 255, 0.6)' } },
               this.context.translator.t('Group\'s Elements')
             ),
             React.createElement(
@@ -246,17 +247,17 @@ var PanelGroupEditor = function (_Component) {
                         ),
                         React.createElement(
                           'td',
-                          { style: { textAlign: 'center' } },
+                          { style: { textAlign: 'center', color: 'rgba(255, 255, 255, 0.6)' } },
                           layerID
                         ),
                         React.createElement(
                           'td',
-                          { style: { textAlign: 'center', textTransform: 'capitalize' } },
+                          { style: { textAlign: 'center', textTransform: 'capitalize', color: 'rgba(255, 255, 255, 0.6)' } },
                           elementPrototype
                         ),
                         React.createElement(
                           'td',
-                          { style: { textAlign: 'center' } },
+                          { style: { textAlign: 'center', color: 'rgba(255, 255, 255, 0.6)' } },
                           element.name
                         )
                       );

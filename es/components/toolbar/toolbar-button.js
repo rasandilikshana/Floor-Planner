@@ -1,59 +1,39 @@
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _templateObject = _taggedTemplateLiteral(['\n  width: 36px;\n  height: 36px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 8px;\n  font-size: 18px;\n  position: relative;\n  cursor: pointer;\n  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);\n  color: ', ';\n  background: ', ';\n  box-shadow: ', ';\n\n  &:hover {\n    background: ', ';\n    color: ', ';\n  }\n'], ['\n  width: 36px;\n  height: 36px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 8px;\n  font-size: 18px;\n  position: relative;\n  cursor: pointer;\n  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);\n  color: ', ';\n  background: ', ';\n  box-shadow: ', ';\n\n  &:hover {\n    background: ', ';\n    color: ', ';\n  }\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  position: absolute;\n  left: calc(100% + 12px);\n  top: 50%;\n  transform: translateY(-50%);\n  background: rgba(15, 15, 20, 0.9);\n  backdrop-filter: blur(8px);\n  -webkit-backdrop-filter: blur(8px);\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  border-radius: 6px;\n  padding: 4px 10px;\n  font-size: 12px;\n  color: rgba(255, 255, 255, 0.9);\n  white-space: nowrap;\n  z-index: 999;\n  pointer-events: none;\n'], ['\n  position: absolute;\n  left: calc(100% + 12px);\n  top: 50%;\n  transform: translateY(-50%);\n  background: rgba(15, 15, 20, 0.9);\n  backdrop-filter: blur(8px);\n  -webkit-backdrop-filter: blur(8px);\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  border-radius: 6px;\n  padding: 4px 10px;\n  font-size: 12px;\n  color: rgba(255, 255, 255, 0.9);\n  white-space: nowrap;\n  z-index: 999;\n  pointer-events: none;\n']);
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as SharedStyle from '../../shared-style';
+import styled from 'styled-components';
 
-//http://www.cssportal.com/css-tooltip-generator/
+var ButtonWrapper = styled.div.withConfig({
+  displayName: 'toolbar-button__ButtonWrapper',
+  componentId: 'sc-9uwfxb-0'
+})(_templateObject, function (props) {
+  return props.isActive ? '#6366f1' : 'rgba(255, 255, 255, 0.6)';
+}, function (props) {
+  return props.isActive ? 'rgba(99, 102, 241, 0.15)' : 'transparent';
+}, function (props) {
+  return props.isActive ? '0 0 12px rgba(99, 102, 241, 0.2)' : 'none';
+}, function (props) {
+  return props.isActive ? 'rgba(99, 102, 241, 0.15)' : 'rgba(255, 255, 255, 0.08)';
+}, function (props) {
+  return props.isActive ? '#6366f1' : 'rgba(255, 255, 255, 0.95)';
+});
 
-var STYLE = {
-  width: '30px',
-  height: '30px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  marginBottom: '5px',
-  fontSize: '25px',
-  position: 'relative',
-  cursor: 'pointer'
-};
-
-var STYLE_TOOLTIP = {
-  position: 'absolute',
-  width: '140px',
-  color: SharedStyle.COLORS.white,
-  background: SharedStyle.COLORS.black,
-  height: '30px',
-  lineHeight: '30px',
-  textAlign: 'center',
-  visibility: 'visible',
-  borderRadius: '6px',
-  opacity: '0.8',
-  left: '100%',
-  top: '50%',
-  marginTop: '-15px',
-  marginLeft: '15px',
-  zIndex: '999',
-  fontSize: '12px'
-};
-
-var STYLE_TOOLTIP_PIN = {
-  position: 'absolute',
-  top: '50%',
-  right: '100%',
-  marginTop: '-8px',
-  width: '0',
-  height: '0',
-  borderRight: '8px solid #000000',
-  borderTop: '8px solid transparent',
-  borderBottom: '8px solid transparent'
-};
+var Tooltip = styled.div.withConfig({
+  displayName: 'toolbar-button__Tooltip',
+  componentId: 'sc-9uwfxb-1'
+})(_templateObject2);
 
 var ToolbarButton = function (_Component) {
   _inherits(ToolbarButton, _Component);
@@ -75,26 +55,24 @@ var ToolbarButton = function (_Component) {
       var state = this.state,
           props = this.props;
 
-      var color = props.active || state.active ? SharedStyle.SECONDARY_COLOR.icon : SharedStyle.PRIMARY_COLOR.icon;
+      var isActive = props.active || state.active;
 
       return React.createElement(
-        'div',
-        { style: STYLE,
+        ButtonWrapper,
+        {
+          isActive: props.active,
           onMouseOver: function onMouseOver(event) {
             return _this2.setState({ active: true });
           },
           onMouseOut: function onMouseOut(event) {
             return _this2.setState({ active: false });
-          } },
-        React.createElement(
-          'div',
-          { style: { color: color }, onClick: props.onClick },
-          props.children
-        ),
+          },
+          onClick: props.onClick
+        },
+        props.children,
         state.active ? React.createElement(
-          'div',
-          { style: STYLE_TOOLTIP },
-          React.createElement('span', { style: STYLE_TOOLTIP_PIN }),
+          Tooltip,
+          null,
           props.tooltip
         ) : null
       );

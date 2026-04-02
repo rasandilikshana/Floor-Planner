@@ -9,7 +9,7 @@ import FormTextInput from './form-text-input';
 var sliderContainerStyle = { display: 'inline-block', width: '80%', marginRight: '5%' };
 var sliderStyle = { display: 'block', width: '100%', height: '30px' };
 var textContainerStyle = { display: 'inline-block', width: '15%', float: 'right' };
-var textStyle = { height: '34px', textAlign: 'center' };
+var textStyle = { height: '34px', textAlign: 'center', color: 'rgba(255, 255, 255, 0.95)', backgroundColor: 'rgba(0, 0, 0, 0.3)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '6px' };
 
 export default function FormNumberInput(_ref) {
   var value = _ref.value,

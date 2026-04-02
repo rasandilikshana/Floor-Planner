@@ -1,7 +1,10 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _templateObject = _taggedTemplateLiteral(['\n  background: rgba(255, 255, 255, 0.03);\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n  border-left: 1px solid rgba(255, 255, 255, 0.08);\n  display: block;\n  overflow-y: auto;\n  overflow-x: hidden;\n  padding-bottom: 20px;\n\n  &::-webkit-scrollbar { width: 4px; }\n  &::-webkit-scrollbar-track { background: transparent; }\n  &::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 2px; }\n  &::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }\n'], ['\n  background: rgba(255, 255, 255, 0.03);\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n  border-left: 1px solid rgba(255, 255, 255, 0.08);\n  display: block;\n  overflow-y: auto;\n  overflow-x: hidden;\n  padding-bottom: 20px;\n\n  &::-webkit-scrollbar { width: 4px; }\n  &::-webkit-scrollbar-track { background: transparent; }\n  &::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 2px; }\n  &::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }\n']);
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import PanelElementEditor from './panel-element-editor/panel-element-editor';
 import PanelGroupEditor from './panel-group-editor';
 import PanelMultiElementsEditor from './panel-element-editor/panel-multi-elements-editor';
@@ -9,16 +12,12 @@ import PanelLayers from './panel-layers';
 import PanelGuides from './panel-guides';
 import PanelGroups from './panel-groups';
 import PanelLayerElements from './panel-layer-elements';
-import * as SharedStyle from '../../shared-style';
 import If from '../../utils/react-if';
 
-var STYLE = {
-  backgroundColor: SharedStyle.PRIMARY_COLOR.main,
-  display: 'block',
-  overflowY: 'auto',
-  overflowX: 'hidden',
-  paddingBottom: '20px'
-};
+var SidebarAside = styled.aside.withConfig({
+  displayName: 'sidebar__SidebarAside',
+  componentId: 'sc-dp2x5w-0'
+})(_templateObject);
 
 var sortButtonsCb = function sortButtonsCb(a, b) {
   if (a.index === undefined || a.index === null) {
@@ -75,9 +74,9 @@ export default function Sidebar(_ref) {
   }));
 
   return React.createElement(
-    'aside',
+    SidebarAside,
     {
-      style: _extends({ width: width, height: height }, STYLE),
+      style: { width: width, height: height },
       onKeyDown: function onKeyDown(event) {
         return event.stopPropagation();
       },

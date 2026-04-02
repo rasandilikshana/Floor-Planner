@@ -1,6 +1,6 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n  position: absolute;\n  bottom: 0;\n  line-height: 16px;\n  font-size: 12px;\n  color: rgba(255, 255, 255, 0.6);\n  background: rgba(255, 255, 255, 0.03);\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n  border-top: 1px solid rgba(255, 255, 255, 0.08);\n  padding: 4px 1em;\n  margin: 0;\n  box-sizing: border-box;\n  cursor: default;\n  user-select: none;\n  z-index: 9001;\n'], ['\n  position: absolute;\n  bottom: 0;\n  line-height: 16px;\n  font-size: 12px;\n  color: rgba(255, 255, 255, 0.6);\n  background: rgba(255, 255, 255, 0.03);\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n  border-top: 1px solid rgba(255, 255, 255, 0.08);\n  padding: 4px 1em;\n  margin: 0;\n  box-sizing: border-box;\n  cursor: default;\n  user-select: none;\n  z-index: 9001;\n']);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -8,8 +8,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import If from '../../utils/react-if';
 import FooterToggleButton from './footer-toggle-button';
 import FooterContentButton from './footer-content-button';
@@ -19,24 +22,14 @@ import * as SharedStyle from '../../shared-style';
 import { MdAddCircle, MdWarning } from 'react-icons/md';
 import { VERSION } from '../../version';
 
-var footerBarStyle = {
-  position: 'absolute',
-  bottom: 0,
-  lineHeight: '14px',
-  fontSize: '12px',
-  color: SharedStyle.COLORS.white,
-  backgroundColor: SharedStyle.SECONDARY_COLOR.alt,
-  padding: '3px 1em',
-  margin: 0,
-  boxSizing: 'border-box',
-  cursor: 'default',
-  userSelect: 'none',
-  zIndex: '9001'
-};
+var FooterBarWrapper = styled.div.withConfig({
+  displayName: 'footerbar__FooterBarWrapper',
+  componentId: 'sc-mbw24z-0'
+})(_templateObject);
 
 export var leftTextStyle = {
   position: 'relative',
-  borderRight: '1px solid #FFF',
+  borderRight: '1px solid rgba(255,255,255,0.08)',
   float: 'left',
   padding: '0 1em',
   display: 'inline-block'
@@ -44,7 +37,7 @@ export var leftTextStyle = {
 
 export var rightTextStyle = {
   position: 'relative',
-  borderLeft: '1px solid #FFF',
+  borderLeft: '1px solid rgba(255,255,255,0.08)',
   float: 'right',
   padding: '0 1em',
   display: 'inline-block'
@@ -57,7 +50,7 @@ var coordStyle = {
   padding: 0
 };
 
-var appMessageStyle = { borderBottom: '1px solid #555', lineHeight: '1.5em' };
+var appMessageStyle = { borderBottom: '1px solid rgba(255,255,255,0.08)', lineHeight: '1.5em' };
 
 var FooterBar = function (_Component) {
   _inherits(FooterBar, _Component);
@@ -122,8 +115,8 @@ var FooterBar = function (_Component) {
       };
 
       return React.createElement(
-        'div',
-        { style: _extends({}, footerBarStyle, { width: width, height: height }) },
+        FooterBarWrapper,
+        { style: { width: width, height: height } },
         React.createElement(
           If,
           { condition: MODE_SNAPPING.includes(mode) },

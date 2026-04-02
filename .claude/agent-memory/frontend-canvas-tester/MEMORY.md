@@ -1,0 +1,3 @@
+- [Dev server startup](project_dev_server.md) — Port 9000 taken by Keycloak; use port 8082 + NODE_OPTIONS=--openssl-legacy-provider (Node 22 + Webpack 4)
+- [Canvas interaction quirks](project_canvas_interactions.md) — Coordinate system, wall drawing workflow, selection, zoom/pan, undo behavior
+- [Known bugs](project_bugs_found.md) — Zoom 0.000X after load, "Giude" typo, passive event listener errors, catalog tag casing inconsistency

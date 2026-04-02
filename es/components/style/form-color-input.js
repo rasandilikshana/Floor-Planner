@@ -7,7 +7,8 @@ import FormTextInput from './form-text-input';
 
 var STYLE = {
   padding: 0,
-  border: 0
+  border: 0,
+  borderRadius: '6px'
 };
 var EREG_NUMBER = /^.*$/;
 

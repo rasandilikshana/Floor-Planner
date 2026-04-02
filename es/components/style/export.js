@@ -11,8 +11,9 @@ import FormSelect from './form-select';
 import FormSlider from './form-slider';
 import FormSubmitButton from './form-submit-button';
 import FormTextInput from './form-text-input';
+import { glassMixin, GlassPanel, GlassSurface, GlassButton, GlassInput, AccentText } from './glass-primitives';
 
-export { Button, CancelButton, ContentContainer, ContentTitle, DeleteButton, FormBlock, FormColorInput, FormLabel, FormNumberInput, FormSelect, FormSlider, FormSubmitButton, FormTextInput };
+export { Button, CancelButton, ContentContainer, ContentTitle, DeleteButton, FormBlock, FormColorInput, FormLabel, FormNumberInput, FormSelect, FormSlider, FormSubmitButton, FormTextInput, glassMixin, GlassPanel, GlassSurface, GlassButton, GlassInput, AccentText };
 
 export default {
   Button: Button,
@@ -27,5 +28,11 @@ export default {
   FormSelect: FormSelect,
   FormSlider: FormSlider,
   FormSubmitButton: FormSubmitButton,
-  FormTextInput: FormTextInput
+  FormTextInput: FormTextInput,
+  glassMixin: glassMixin,
+  GlassPanel: GlassPanel,
+  GlassSurface: GlassSurface,
+  GlassButton: GlassButton,
+  GlassInput: GlassInput,
+  AccentText: AccentText
 };

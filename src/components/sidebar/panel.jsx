@@ -9,9 +9,9 @@ const PanelWrapper = styled.div`
 `;
 
 const PanelHeader = styled.h3`
-  font-size: 11px;
+  font-size: clamp(11px, 0.75vw, 16px);
   color: ${props => props.isHovered ? '#6366f1' : 'rgba(255, 255, 255, 0.6)'};
-  padding: 8px 15px;
+  padding: clamp(8px, 0.6vw, 12px) clamp(15px, 1vw, 20px);
   margin: 0;
   background: rgba(255, 255, 255, 0.03);
   cursor: pointer;
@@ -26,7 +26,7 @@ const PanelHeader = styled.h3`
 `;
 
 const PanelContent = styled.div`
-  font-size: 11px;
+  font-size: clamp(11px, 0.75vw, 16px);
   color: rgba(255, 255, 255, 0.6);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding: 0;

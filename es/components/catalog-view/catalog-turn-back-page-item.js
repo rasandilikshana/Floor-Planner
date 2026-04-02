@@ -17,41 +17,45 @@ var STYLE_BOX = {
   width: '14em',
   height: '14em',
   padding: '0.625em',
-  background: '#f7f7f9',
-  border: '1px solid #e1e1e8',
-  margin: '0.3em',
+  background: 'rgba(255, 255, 255, 0.04)',
+  border: '1px solid rgba(255, 255, 255, 0.08)',
   cursor: 'pointer',
   position: 'relative',
-  boxShadow: '0 1px 6px 0 rgba(0, 0, 0, 0.11), 0 1px 4px 0 rgba(0, 0, 0, 0.11)',
-  borderRadius: '2px',
+  boxShadow: 'none',
+  borderRadius: '10px',
   transition: 'all .2s ease-in-out',
-  WebkitTransition: 'all .2s ease-in-out'
+  alignSelf: 'center',
+  justifySelf: 'center'
 };
 
 var STYLE_BOX_HOVER = _extends({}, STYLE_BOX, {
-  background: SharedStyle.SECONDARY_COLOR.main
+  background: 'rgba(99, 102, 241, 0.1)',
+  borderColor: 'rgba(99, 102, 241, 0.3)',
+  boxShadow: '0 0 20px rgba(99, 102, 241, 0.15)',
+  transform: 'translateY(-2px)'
 });
 
 var STYLE_BACK = {
   position: 'absolute',
-  color: SharedStyle.COLORS.black,
+  color: 'rgba(255, 255, 255, 0.6)',
   fontSize: '5em',
   width: '100%'
 };
 
 var STYLE_BACK_HOVER = _extends({}, STYLE_BACK, {
-  color: SharedStyle.SECONDARY_COLOR.main
+  color: '#6366f1'
 });
 
 var CONTAINER_DIV = {
-  background: SharedStyle.COLORS.white,
+  background: 'rgba(0, 0, 0, 0.3)',
   marginBottom: '5px',
-  border: 'solid 1px #e6e6e6',
+  border: 'solid 1px rgba(255, 255, 255, 0.06)',
   width: '100%',
   height: '100%',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  borderRadius: '6px'
 };
 
 var CatalogTurnBackPageItem = function (_Component) {

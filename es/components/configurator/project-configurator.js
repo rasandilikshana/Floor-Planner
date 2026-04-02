@@ -63,7 +63,7 @@ var ProjectConfigurator = function (_Component) {
 
       return React.createElement(
         ContentContainer,
-        { width: width, height: height },
+        { width: width, height: height, style: { background: 'rgba(15, 15, 20, 0.95)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' } },
         React.createElement(
           ContentTitle,
           null,

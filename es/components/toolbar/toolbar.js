@@ -2,11 +2,15 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _templateObject = _taggedTemplateLiteral(['\n  background: rgba(255, 255, 255, 0.03);\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n  border-right: 1px solid rgba(255, 255, 255, 0.08);\n  padding: 12px 8px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 4px;\n'], ['\n  background: rgba(255, 255, 255, 0.03);\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n  border-right: 1px solid rgba(255, 255, 255, 0.08);\n  padding: 12px 8px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 4px;\n']);
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -18,6 +22,7 @@ import ToolbarLoadButton from './toolbar-load-button';
 import If from '../../utils/react-if';
 import { MODE_IDLE, MODE_3D_VIEW, MODE_3D_FIRST_PERSON, MODE_VIEWING_CATALOG, MODE_CONFIGURING_PROJECT } from '../../constants';
 import * as SharedStyle from '../../shared-style';
+import styled from 'styled-components';
 
 var iconTextStyle = {
   fontSize: '19px',
@@ -44,10 +49,10 @@ var Icon3D = function Icon3D(_ref2) {
   );
 };
 
-var ASIDE_STYLE = {
-  backgroundColor: SharedStyle.PRIMARY_COLOR.main,
-  padding: '10px'
-};
+var ToolbarAside = styled.aside.withConfig({
+  displayName: 'toolbar__ToolbarAside',
+  componentId: 'sc-xh1fss-0'
+})(_templateObject);
 
 var sortButtonsCb = function sortButtonsCb(a, b) {
   if (a.index === undefined || a.index === null) {
@@ -208,8 +213,8 @@ var Toolbar = function (_Component) {
       }));
 
       return React.createElement(
-        'aside',
-        { style: _extends({}, ASIDE_STYLE, { maxWidth: width, maxHeight: height }), className: 'toolbar' },
+        ToolbarAside,
+        { style: { maxWidth: width, maxHeight: height }, className: 'toolbar' },
         sorter.sort(sortButtonsCb).map(mapButtonsCb)
       );
     }
