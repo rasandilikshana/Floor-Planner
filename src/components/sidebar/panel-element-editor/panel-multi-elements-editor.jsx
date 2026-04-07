@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Panel from '../panel';
-import {Seq} from 'immutable';
 import {
   MODE_IDLE, MODE_2D_ZOOM_IN, MODE_2D_ZOOM_OUT, MODE_2D_PAN, MODE_3D_VIEW, MODE_3D_FIRST_PERSON,
   MODE_WAITING_DRAWING_LINE, MODE_DRAWING_LINE, MODE_DRAWING_HOLE, MODE_DRAWING_ITEM, MODE_DRAGGING_LINE,
@@ -16,7 +15,6 @@ const tableStyle = { width: '100%', color: 'rgba(255, 255, 255, 0.95)' };
 const firstTdStyle = { width: '6em', color: 'rgba(255, 255, 255, 0.6)' };
 
 export default class PanelMultiElementsEditor extends Component {
-//export default function PanelMultiElementsEditor({state}, {projectActions, translator}) {
   constructor(props, context) {
     super(props, context);
 
@@ -28,12 +26,10 @@ export default class PanelMultiElementsEditor extends Component {
   addSelectToGroup( state, groupID, layerID, selecteds ) {
     if( !groupID || groupID === '' || !selecteds || !selecteds.size ) return;
 
-    console.log('need to be added to group', groupID, 'elements', selecteds );
-
-    /*let selectedJs = selecteds.toJS();
-
-    for( let lineID in selectedJs.lines ) Group.addElement( state, groupID, layerID, 'lines', lineID );*/
-
+    let selectedJs = selecteds.toJS();
+    for (let lineID of selectedJs.lines) {
+      Group.addElement(state, groupID, layerID, 'lines', lineID);
+    }
   }
 
   render() {
@@ -48,7 +44,6 @@ export default class PanelMultiElementsEditor extends Component {
 
     let groups = this.props.state.getIn(['scene', 'groups']);
 
-    //TODO change in multi-layer check
     let selectedLayer = this.props.state.getIn(['scene', 'selectedLayer']);
     let selecteds = this.props.state.getIn(['scene', 'layers', selectedLayer, 'selected']);
 

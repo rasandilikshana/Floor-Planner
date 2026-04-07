@@ -53,21 +53,18 @@ class Project{
   }
 
   static setItemsAttributes(state, attributes) {
-    //TODO apply only to items
     state.getIn(['scene', 'layers']).forEach( layer => { state = Layer.setAttributesOnSelected( state, layer.id, attributes ).updatedState; } );
 
     return { updatedState: state };
   }
 
   static setLinesAttributes(state, attributes) {
-    //TODO apply only to lines
     state.getIn(['scene', 'layers']).forEach( layer => { state = Layer.setAttributesOnSelected( state, layer.id, attributes ).updatedState; } );
 
     return { updatedState: state };
   }
 
   static setHolesAttributes(state, attributes) {
-    //TODO apply only to holes
     state.getIn(['scene', 'layers']).forEach( layer => { state = Layer.setAttributesOnSelected( state, layer.id, attributes ).updatedState; } );
 
     return { updatedState: state };
@@ -254,8 +251,6 @@ class Project{
   }
 
   static addCircularGuide( state, x, y, radius ){
-    console.log('adding horizontal guide at', x, y, radius);
-
     return { updatedState: state };
   }
 
@@ -272,8 +267,6 @@ class Project{
   }
 
   static removeCircularGuide( state, guideID ){
-    console.log('removeing horizontal guide ', guideID);
-
     return { updatedState: state };
   }
 

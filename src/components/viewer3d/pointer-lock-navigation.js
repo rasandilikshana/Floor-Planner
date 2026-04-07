@@ -22,8 +22,6 @@ export function initPointerLock(camera, rendererElement) {
     document.addEventListener('webkitpointerlockchange', pointerlockchange, false);
     rendererElement.addEventListener('click', requestPointerLockEvent);
 
-  } else {
-    console.log('Your browser doesn\'t seem to support Pointer Lock API');
   }
 
   let controls = new PointerLockControls(camera);
@@ -31,11 +29,7 @@ export function initPointerLock(camera, rendererElement) {
 }
 
 
-/* Funzione per il calcolo delle collisioni con gli oggetti contenuti all'interno di un array.
- * L'idea è quella di utilizzare il ray casting. Per tenere conto del fatto che ci possiamo
- * muovere nelle quattro direzioni, applico una matrice di rotazione alla direzione verso la
- * quale l'oggetto del pointer lock è orientato. */
-
+// Collision detection using raycasting across four movement directions
 function collision(controls, collisionArray) {
 
   let rotationMatrix;
@@ -72,32 +66,7 @@ function collision(controls, collisionArray) {
 }
 
 
-/* Funzione meno raffinata per il calcolo delle collisioni.
- * In pratica viene definita una bounding geometry (in questo caso la skymap) e poi vengono fatti
- * partire una serie di raggi dall'object del controller fino ai vertici di questa geometria. Se uno di questi interseca
- * uno degli oggetti dei quali vogliamo controllare la collisione, allora la funzione restituirà il valore true */
-/*
- function collision(object, boundingGeometry, collisionArray ) {
-
- for (let vertexIndex = 0; vertexIndex < boundingGeometry.geometry.vertices.length; vertexIndex++)	{
- let localVertex = boundingGeometry.geometry.vertices[vertexIndex].clone();
- let globalVertex = localVertex.applyMatrix4( object.matrix );
- let directionVector = globalVertex.sub( object.position );
-
- let ray = new THREE.Raycaster(object.position, directionVector.clone().normalize());
- let collisionResults = ray.intersectObjects(collisionArray, true);
- if (collisionResults.length > 0 && collisionResults[0].distance < directionVector.length() - 1293) {
- console.log("collisione: ",collisionResults[0].distance," ",directionVector.length()-1293);
- return true;
- }
- }
- return false;
- }
- */
-
-/* Questa funzione si occupa di determinare se il controllo si trova su un oggetto, in caso negativo cade verso il basso
- * (vedi esempio pointer lock) */
-
+// Applies gravity: if the controller is not on an object, it falls downward
 function translateY(controls, ray, objects) {
 
   controls.isOnObject(false);
@@ -112,8 +81,6 @@ function translateY(controls, ray, objects) {
   }
 
 }
-
-/* Queste funzioni bloccano o sbloccano il movimento del controller (utili in caso di collisione) */
 
 function lockDirection(controls) {
   if (controls.moveForward()) {

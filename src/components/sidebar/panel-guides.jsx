@@ -177,9 +177,6 @@ export default class PanelGuides extends Component {
               </tbody>
             </table>
           </TabPanel>
-          {/*<TabPanel>
-            <b>TODO Circular Giudes</b>
-          </TabPanel>*/}
         </Tabs>
       </Panel>
     );

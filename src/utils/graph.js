@@ -82,15 +82,12 @@ class Graph {
           let subgraph = [];
           while (st[st.length - 1].u != u || st[st.length - 1].v != v) {
             subgraph.push(st[st.length - 1]);
-            //console.log(st[st.length - 1].u + "--" + st[st.length - 1].v + " ");
             st.splice(st.length - 1, 1);
           }
 
           subgraph.push(st[st.length - 1]);
-          //console.log(st[st.length - 1].u + "--" + st[st.length - 1].v + " ");
           this.subgraphs.push(subgraph);
           subgraph = [];
-          //console.log()
           st.splice(st.length - 1, 1);
 
           this.count++;
@@ -133,14 +130,12 @@ class Graph {
       while (st.length > 0) {
         j = 1;
         subgraph.push(st[st.length - 1]);
-        //console.log(st[st.length - 1].u + "--" + st[st.length - 1].v + " ");
         st.splice(st.length - 1, 1);
       }
 
       if (j == 1) {
         this.subgraphs.push(subgraph);
         subgraph = [];
-        //console.log();
         this.count++;
       }
     }

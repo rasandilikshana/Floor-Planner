@@ -20,6 +20,7 @@ export default class ProjectConfigurator extends Component {
     this.state = {
       dataWidth: scene.width,
       dataHeight: scene.height,
+      error: null,
     };
   }
 
@@ -32,8 +33,9 @@ export default class ProjectConfigurator extends Component {
     dataWidth = parseInt(dataWidth);
     dataHeight = parseInt(dataHeight);
     if (dataWidth <= 100 || dataHeight <= 100) {
-      alert('Scene size too small');
+      this.setState({ error: 'Scene size too small (minimum 100x100)' });
     } else {
+      this.setState({ error: null });
       projectActions.setProjectProperties({width: dataWidth, height: dataHeight});
     }
   }
@@ -41,12 +43,22 @@ export default class ProjectConfigurator extends Component {
 
   render() {
     let {width, height} = this.props;
-    let {dataWidth, dataHeight} = this.state;
+    let {dataWidth, dataHeight, error} = this.state;
     let {projectActions, translator} = this.context;
 
     return (
       <ContentContainer width={width} height={height} style={{background: 'rgba(15, 15, 20, 0.95)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)'}}>
         <ContentTitle>{translator.t('Project config')}</ContentTitle>
+
+        {error && <div style={{
+          padding: '8px 12px',
+          marginBottom: '10px',
+          background: 'rgba(239, 68, 68, 0.15)',
+          border: '1px solid rgba(239, 68, 68, 0.3)',
+          borderRadius: '6px',
+          color: '#ef4444',
+          fontSize: '13px'
+        }}>{error}</div>}
 
         <form onSubmit={e => this.onSubmit(e)}>
           <FormBlock>

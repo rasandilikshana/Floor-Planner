@@ -444,7 +444,6 @@ function removeItem(planData, layerId, itemID) {
   planData.sceneGraph.busyResources.layers[layerId].items[itemID] = false;
 }
 
-//TODO generate an area's replace if vertex has been changed
 function addObject(modifiedPath, layer, planData, actions, sceneData, oldSceneData, catalog) {
   if (modifiedPath.length === 5) {
     let addPromise = null, addAction = null;

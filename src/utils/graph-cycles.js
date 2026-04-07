@@ -87,7 +87,6 @@ function get_starting_edge (incidences, ev_mapping) {
 
 function get_next_edge (incidences, edge, position, EV) {
   let items = incidences[EV[edge][position]]
-  //console.log(items, incidences, EV, edge, position);
   let n_items = items.length
   let item
   let out
@@ -139,13 +138,6 @@ function find_cycles (V, EV) {
     E_cycles.push(E_cycle)
     V_cycles.push(V_cycle)
     dir_E_cycles.push(dir_E_cycle)
-
-    //console.log('############## CYCLE ', ++counter)
-    //console.log('EDGES:', E_cycle)
-    //console.log('VERTICES:', V_cycle)
-    //console.log('START', 'edge:', start.edge, 'position:', start.position)
-    //console.log('COUNTER:', ev_mapping.map(e => e.color), ev_mapping.map(e => e.color).reduce((a, b) => a + b));
-    //console.log('\n')
 
     start = get_starting_edge(incidences, ev_mapping)
   }
@@ -242,13 +234,5 @@ module.exports = find_inner_cycles
 * MAIN
 */
 
-// let cycles_data = find_inner_cycles(V, EV)
-// console.log('############## OUTPUT')
-// console.log('EDGES:')
-// console.log(cycles_data.e_cycles)
-// console.log('\n')
-// console.log('VERTICES:')
-// console.log(cycles_data.v_cycles)
-// console.log('\n')
-// console.log(cycles_data.ev_mapping.every(m => m.color === 2))
+
 
